@@ -1,5 +1,3 @@
-# atcoder
-
 # __AtCoder Beginners Selection__
 https://atcoder.jp/contests/abs
 
