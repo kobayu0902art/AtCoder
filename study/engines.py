@@ -14,7 +14,7 @@ mz=[]
 for i in range(n):
     #複数入力
     a,b=(int(x) for x in input().split())
-    tup=(a,b)
+    tup=[a,b]
     if a<0 and b<0:
         mm.append(tup)
     elif a<0 and b>0:
@@ -33,4 +33,3 @@ for i in range(n):
         mz.append(tup)
 
 print(pp,mp,pm,mm,zp,zm,pz,mz)
-print(sum(pp),sum(mp),sum(pm),sum(mm),sum(zp),sum(zm),sum(pz),sum(mz))
