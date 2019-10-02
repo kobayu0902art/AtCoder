@@ -23,3 +23,32 @@ l=set(l)
 
 #リスト大きい順ソート
 l.sort(reverse=True)
+
+#素因数分解リスト列挙
+def factorize(n):
+    b = 2
+    fct = []
+    while b * b <= n:
+        while n % b == 0:
+            n //= b
+            fct.append(b)
+        b = b + 1
+    if n > 1:
+        fct.append(n)
+    return fct
+
+#偶数True奇数False
+def evenjudge(obj):
+    if obj %2==0:
+        return True
+    else:
+        return False
+
+#2重ループ
+import itertools
+for i,j in itertools.product(range(n), range(n)):
+    pass
+
+#リスト内組み合わせ
+import itertools
+itertools.combinations(list,n)

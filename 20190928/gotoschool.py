@@ -10,3 +10,6 @@ a = [int(i) for i in input().split()]
 for i,j in itertools.product(range(1,n+1), range(n)):
     if a[j]==i:
         print(j+1,end=' ')
+
+#スペース間隔出力
+print(s,end=' ')
