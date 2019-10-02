@@ -1,7 +1,5 @@
 https://atcoder.jp/contests/abc141/tasks
 
-提出コードは最後に
-
 【結果】
 A,B:完答
 C,D:TLE

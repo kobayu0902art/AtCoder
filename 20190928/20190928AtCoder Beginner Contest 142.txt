@@ -1,0 +1,66 @@
+【提出コード】
+【A - Odds of Oddness】
+import sys
+input = sys.stdin.readline
+
+#単入力
+n=int(input())
+
+def evenjudge(obj):
+    if obj %2!=0:
+        return False
+    else:
+        return True
+
+if evenjudge(n)== True:
+    print(0.5)
+else:
+    print(((n+1)/2)/n)
+【B】
+import sys
+input = sys.stdin.readline
+
+#複数入力
+n,k=(int(x) for x in input().split())
+
+#リスト入力
+h = [int(i) for i in input().split()]
+
+print(len([i for i in h if i>= k]))
+【C】
+import sys
+import itertools
+input = sys.stdin.readline
+
+#単入力
+n=int(input())
+
+#リスト入力
+a = [int(i) for i in input().split()]
+for i,j in itertools.product(range(1,n+1), range(n)):
+    if a[j]==i:
+        print(j+1,end=' ')
+【D】
+import sys
+input = sys.stdin.readline
+
+#複数入力
+a,b=(int(x) for x in input().split())
+
+def make_divisors(n):
+    divisors = []
+    for i in range(1, int(n**0.5)+1):
+        if n % i == 0:
+            divisors.append(i)
+            if i != n // i:
+                divisors.append(n//i)
+
+    # divisors.sort()
+    return divisors
+
+ad=make_divisors(a)
+bd=make_divisors(b)
+
+cd=set(ad)&set(bd)
+
+print(ad,bd,cd)

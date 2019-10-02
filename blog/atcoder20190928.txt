@@ -1,0 +1,121 @@
+https://atcoder.jp/contests/abc142/tasks
+
+【結果】
+A,B:完答
+C,D:TLE
+300点
+
+【感想】
+問題解いてる途中でトラブル発生して集中できなかった時間も足りなかった
+(言い訳)
+思考が十分でないせいか終了後「その手があったか」が多い
+
+最近どんな問題みてもリストとループでしか解法思いつかないのアタマ固いな
+
+
+【A - Odds of Oddness】
+https://atcoder.jp/contests/abc142/tasks/abc142_a
+
+偶数か奇数か判断する必要があると思って以前使った関数をそのままつかった。
+
+あとから、((n+1)/2)をintにすることで偶奇判断いらないと知った。
+けどまああんまり時間に差はないのかな
+
+所要時間は5分
+
+【B - Roller Coaster】
+https://atcoder.jp/contests/abc142/tasks/abc142_b
+
+Aより簡単！？！？
+内包表記の練習
+
+所要時間は5分未満
+
+【C - Go to School】
+https://atcoder.jp/contests/abc142/tasks/abc142_c
+
+問題文が読めない
+2重ループになったあたりで「あっTLEだ…」って感じ
+けど他に解法思いつかなかった
+数学的になんとかシンプルにならないかと思ったけどなんともならなかった
+
+タプルの第二要素でソート、その手があったか
+
+所要時間は35分
+
+【D - Disjoint Set of Common Divisors】
+https://atcoder.jp/contests/abc142/tasks/abc142_d
+
+トラブルとCのTLEで心が折れる
+
+そもそも算数やりなおそう
+
+所要時間は25分
+
+
+【提出コード】
+【A - Odds of Oddness】
+import sys
+input = sys.stdin.readline
+
+#単入力
+n=int(input())
+
+def evenjudge(obj):
+    if obj %2!=0:
+        return False
+    else:
+        return True
+
+if evenjudge(n)== True:
+    print(0.5)
+else:
+    print(((n+1)/2)/n)
+【B】
+import sys
+input = sys.stdin.readline
+
+#複数入力
+n,k=(int(x) for x in input().split())
+
+#リスト入力
+h = [int(i) for i in input().split()]
+
+print(len([i for i in h if i>= k]))
+【C】
+import sys
+import itertools
+input = sys.stdin.readline
+
+#単入力
+n=int(input())
+
+#リスト入力
+a = [int(i) for i in input().split()]
+for i,j in itertools.product(range(1,n+1), range(n)):
+    if a[j]==i:
+        print(j+1,end=' ')
+【D】
+import sys
+input = sys.stdin.readline
+
+#複数入力
+a,b=(int(x) for x in input().split())
+
+def make_divisors(n):
+    divisors = []
+    for i in range(1, int(n**0.5)+1):
+        if n % i == 0:
+            divisors.append(i)
+            if i != n // i:
+                divisors.append(n//i)
+
+    # divisors.sort()
+    return divisors
+
+ad=make_divisors(a)
+bd=make_divisors(b)
+
+cd=set(ad)&set(bd)
+
+print(ad,bd,cd)
